@@ -1,0 +1,13 @@
+# ignore dataset folders
+cn/
+images/
+cn_one/
+cn_limit/
+de/
+in/
+
+# ignore result folder
+rs/
+
+# ignore models
+*.pth
