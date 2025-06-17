@@ -11,3 +11,4 @@ rs/
 
 # ignore models
 *.pth
+model/
