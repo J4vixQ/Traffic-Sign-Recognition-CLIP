@@ -1,10 +1,11 @@
-# ignore dataset folders
+# ignore dataset
 cn/
 images/
 cn_one/
 cn_limit/
 de/
 in/
+*.png
 
 # ignore result folder
 rs/

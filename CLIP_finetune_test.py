@@ -183,8 +183,23 @@ def CLIP_finetune_test(image_folder, ground_truth_file, model_ckpt, dst_folder):
     df_top5_per_image.to_csv(dst_folder + "per_image_top5.csv", index=False)
 
 CLIP_finetune_test(
+    image_folder="cn",
+    ground_truth_file="ground_truth_cn.json",
+    model_ckpt="clip_finetuned.pth",
+    dst_folder="rs/finetuneRS/cn/"
+)
+
+CLIP_finetune_test(
+    image_folder="de",
+    ground_truth_file="ground_truth_de.json",
+    model_ckpt="clip_finetuned.pth",
+    dst_folder="rs/finetuneRS/de/"
+)
+
+CLIP_finetune_test(
     image_folder="in",
     ground_truth_file="ground_truth_in.json",
     model_ckpt="clip_finetuned.pth",
     dst_folder="rs/finetuneRS/in/"
 )
+
