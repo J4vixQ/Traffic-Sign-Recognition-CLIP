@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RS Model Compare Dashboard</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="visual_per_class.js"></script>
+  <script src="visual_per_image.js"></script>
+  <style>
+    .dashboard { display: flex; gap: 40px; justify-content: center;}
+    .panel { width: 40%; min-width: 340px;}
+    .selectors { margin-bottom: 10px; }
+    table { border-collapse: collapse; font-family: Arial, sans-serif; margin-top: 15px;}
+    th, td { border: 1px solid #aaa; padding: 6px 10px; text-align: center;}
+    th { background: #333; color: #fff;}
+    h3 { margin-bottom: 8px;}
+    .section-title { text-align:center; margin-top:40px; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+  <!-- 上半部分：Per-class 对比 -->
+  <h2 class="section-title">Top-K Per-class Accuracy Compare</h2>
+  <div class="dashboard">
+    <div class="panel" id="panel-left">
+      <div class="selectors">
+        <label>Model:
+          <select id="model-select-left">
+            <option value="RSzeroshot">Original CLIP</option>
+            <option value="RSfinetune1">Finetune1</option>
+          </select>
+        </label>
+        <label>Country:
+          <select id="country-select-left">
+            <option value="cn">China</option>
+            <option value="de">Germany</option>
+            <option value="in">India</option>
+          </select>
+        </label>
+      </div>
+      <h3 id="title-left"></h3>
+      <div id="output-left"></div>
+    </div>
+    <div class="panel" id="panel-right">
+      <div class="selectors">
+        <label>Model:
+          <select id="model-select-right">
+            <option value="RSzeroshot">Original CLIP</option>
+            <option value="RSfinetune1">Finetune1</option>
+          </select>
+        </label>
+        <label>Country:
+          <select id="country-select-right">
+            <option value="cn">China</option>
+            <option value="de">Germany</option>
+            <option value="in">India</option>
+          </select>
+        </label>
+      </div>
+      <h3 id="title-right"></h3>
+      <div id="output-right"></div>
+    </div>
+  </div>
+
+  <!-- 下半部分：Per-image 对比 -->
+  <h2 class="section-title">Top-K Per-image Prediction Compare</h2>
+  <div class="dashboard">
+    <div class="panel" id="img-panel-left">
+      <div class="selectors">
+        <label>Model:
+          <select id="img-model-select-left">
+            <option value="RSzeroshot">Original CLIP</option>
+            <option value="RSfinetune1">Finetune1</option>
+          </select>
+        </label>
+        <label>Country:
+          <select id="img-country-select-left">
+            <option value="cn">China</option>
+            <option value="de">Germany</option>
+            <option value="in">India</option>
+          </select>
+        </label>
+      </div>
+      <h3 id="img-title-left"></h3>
+      <div id="img-output-left"></div>
+    </div>
+    <div class="panel" id="img-panel-right">
+      <div class="selectors">
+        <label>Model:
+          <select id="img-model-select-right">
+            <option value="RSzeroshot">Original CLIP</option>
+            <option value="RSfinetune1">Finetune1</option>
+          </select>
+        </label>
+        <label>Country:
+          <select id="img-country-select-right">
+            <option value="cn">China</option>
+            <option value="de">Germany</option>
+            <option value="in">India</option>
+          </select>
+        </label>
+      </div>
+      <h3 id="img-title-right"></h3>
+      <div id="img-output-right"></div>
+    </div>
+  </div>
+
+  <script>
+    // ---------- Per-class 控制 ----------
+    const configs = [
+      {
+        modelSel: "#model-select-left",
+        countrySel: "#country-select-left",
+        title: "#title-left",
+        output: "#output-left"
+      },
+      {
+        modelSel: "#model-select-right",
+        countrySel: "#country-select-right",
+        title: "#title-right",
+        output: "#output-right"
+      }
+    ];
+    function getCsvPath(model, country) {
+      return `${model}/${country}/per_class_top5_accuracy.csv`;
+    }
+    function updatePanel(panelIdx) {
+      const conf = configs[panelIdx];
+      const model = document.querySelector(conf.modelSel).value;
+      const country = document.querySelector(conf.countrySel).value;
+      const nameMap = {
+        "RSzeroshot": "Original CLIP",
+        "RSfinetune1": "Finetune1",
+        "cn": "China", "de": "Germany", "in": "India"
+      };
+      document.querySelector(conf.title).textContent = `${nameMap[model]} (${nameMap[country]})`;
+      d3.csv(getCsvPath(model, country)).then(data => {
+        renderPerClassHeatmap(data, conf.output);
+      });
+    }
+    configs.forEach((conf, idx) => {
+      document.querySelector(conf.modelSel).addEventListener("change", () => updatePanel(idx));
+      document.querySelector(conf.countrySel).addEventListener("change", () => updatePanel(idx));
+      updatePanel(idx);
+    });
+
+    // ---------- Per-image 控制 ----------
+    const imgConfigs = [
+      {
+        modelSel: "#img-model-select-left",
+        countrySel: "#img-country-select-left",
+        title: "#img-title-left",
+        output: "#img-output-left"
+      },
+      {
+        modelSel: "#img-model-select-right",
+        countrySel: "#img-country-select-right",
+        title: "#img-title-right",
+        output: "#img-output-right"
+      }
+    ];
+    function getImgCsvPath(model, country) {
+      return `${model}/${country}/per_image_top5.csv`;
+    }
+    function updateImgPanel(panelIdx) {
+      const conf = imgConfigs[panelIdx];
+      const model = document.querySelector(conf.modelSel).value;
+      const country = document.querySelector(conf.countrySel).value;
+      const nameMap = {
+        "RSzeroshot": "Original CLIP",
+        "RSfinetune1": "Finetune1",
+        "cn": "China", "de": "Germany", "in": "India"
+      };
+      document.querySelector(conf.title).textContent = `${nameMap[model]} (${nameMap[country]})`;
+      d3.csv(getImgCsvPath(model, country)).then(data => {
+        renderPerImageHeatmap(data, conf.output);
+      });
+    }
+    imgConfigs.forEach((conf, idx) => {
+      document.querySelector(conf.modelSel).addEventListener("change", () => updateImgPanel(idx));
+      document.querySelector(conf.countrySel).addEventListener("change", () => updateImgPanel(idx));
+      updateImgPanel(idx);
+    });
+  </script>
+</body>
+</html>

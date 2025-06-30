@@ -6,16 +6,15 @@ cn_limit/
 de/
 in/
 *.png
-# *.json
+
+# ignore prompts and ground truth
+*.json
 
 # ignore results
-rs/
-RSfinetune1/
-RSzeroshot/
-*.csv
-*.xlsx
+# RSfinetune1/
+# RSzeroshot/
+# *.csv
 
 # ignore models
 *.pth
-model/
 models/
