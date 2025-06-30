@@ -6,10 +6,16 @@ cn_limit/
 de/
 in/
 *.png
+# *.json
 
-# ignore result folder
+# ignore results
 rs/
+RSfinetune1/
+RSzeroshot/
+*.csv
+*.xlsx
 
 # ignore models
 *.pth
 model/
+models/
