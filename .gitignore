@@ -1,10 +1,10 @@
 # ignore dataset
-cn/
 images/
 cn_one/
 cn_limit/
-de/
-in/
+dataset_cn/
+dataset_de/
+dataset_in/
 *.png
 
 # ignore prompts and ground truth
