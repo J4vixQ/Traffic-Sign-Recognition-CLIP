@@ -1,0 +1,32 @@
+Class,Precision,Recall,F1,Support
+animal crossing,1.0,1.0,1.0,10
+bumpy road,0.0,0.0,0.0,10
+cross road,1.0,1.0,1.0,10
+cycle crossing,1.0,1.0,1.0,20
+dip,0.5,1.0,0.6666666666666666,10
+gas station,1.0,1.0,1.0,10
+give way,1.0,1.0,1.0,20
+height limit,1.0,0.9,0.9473684210526316,10
+hospital,1.0,1.0,1.0,10
+left turn,0.5128205128205128,1.0,0.6779661016949152,20
+narrow roads ahead,1.0,1.0,1.0,10
+no entry for vehicles,0.8,1.0,0.888888888888889,20
+no overtaking,1.0,0.75,0.8571428571428571,20
+no parking,0.6666666666666666,1.0,0.8,10
+no pedestrians,1.0,1.0,1.0,10
+no proceed straight,0.0,0.0,0.0,0
+no stopping,1.0,0.7,0.8235294117647058,20
+no u turn,1.0,1.0,1.0,20
+pedestrian crossing,1.0,1.0,1.0,20
+railway crossing,1.0,1.0,1.0,20
+right turn,1.0,0.05,0.09523809523809523,20
+road work ahead,1.0,1.0,1.0,16
+round about,1.0,1.0,1.0,10
+school zone,1.0,1.0,1.0,20
+slippery road,1.0,1.0,1.0,10
+speed limit,1.0,1.0,1.0,20
+steep ascent,0.375,1.0,0.5454545454545454,12
+steep descent,0.0,0.0,0.0,20
+stop,0.9523809523809523,1.0,0.975609756097561,20
+weight limit,1.0,1.0,1.0,10
+width limit,0.9090909090909091,1.0,0.9523809523809523,10

@@ -11,12 +11,28 @@ function accuracyColor(val) {
 
 /**
  * 渲染 per-class top-k accuracy 热力表
- * @param {Array} data  CSV读取后的对象数组
- * @param {String} containerSelector 例如 "#output"
+ * @param {Array} overallData  
+ * @param {Array} perClassData
+ * @param {String} containerSelector
  */
-function renderPerClassHeatmap(data, containerSelector) {
-    // 找到所有Top-K Acc列
-    let cols = Object.keys(data[0]).filter(c => c.startsWith("Top-") && c.endsWith("Acc"));
+function renderPerClassHeatmap(overallData, perClassData, containerSelector) {
+    // 兼容老接口，允许只传 perClassData（不插入overall行）
+    let hasOverall = Array.isArray(overallData) && overallData.length > 0;
+
+    // 找到所有 Top-K Acc列
+    let cols = Object.keys(perClassData[0]).filter(c => c.startsWith("Top-") && c.endsWith("Acc"));
+
+    // 如果有overallData，组装成一行插到前面
+    let fullData = perClassData;
+    if (hasOverall) {
+        let overallRow = { "Class": "ALL" };
+        cols.forEach(col => {
+            let k = col.replace(" Acc", "");
+            let match = overallData.find(row => row["Top-K"] === k);
+            overallRow[col] = match ? Number(match["Accuracy"]) : "";
+        });
+        fullData = [overallRow].concat(perClassData);
+    }
 
     // 清理原内容（可选）
     d3.select(containerSelector).html("");
@@ -36,18 +52,19 @@ function renderPerClassHeatmap(data, containerSelector) {
 
     // 表体
     let rows = tbody.selectAll("tr")
-        .data(data)
+        .data(fullData)
         .enter()
         .append("tr");
 
-    rows.append("td").text(d => d["Class"]);
+    rows.append("td").text(d => d["Class"] || "");
 
     cols.forEach(col => {
         rows.append("td")
-            .text(d => Number(d[col]).toFixed(2))
-            .style("background", d => accuracyColor(Number(d[col])))
-            .style("color", d => Number(d[col]) > 0.6 ? "#fff" : "#222");
+            .text(d => d[col] === "" ? "" : Number(d[col]).toFixed(2))
+            .style("background", d => d[col] === "" ? "" : accuracyColor(Number(d[col])))
+            .style("color", d => d[col] === "" ? "#222" : (Number(d[col]) > 0.6 ? "#fff" : "#222"));
     });
+
 }
 
 // 导出功能给html用

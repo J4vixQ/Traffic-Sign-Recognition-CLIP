@@ -203,51 +203,78 @@ class CLIPzeroshot:
 # 用法示例
 if __name__ == "__main__":
     
-    zeroCN = CLIPzeroshot(
-        dataset_folder="cn",
-        groundtruth_path="ground_truth_cn.json",
-        prompts_path="prompt_cn.json",
-        save_folder="RSzeroshot/cn"
-    )
-    zeroCN.zeroshot()
-    zeroDE = CLIPzeroshot(
-        dataset_folder="de",
-        groundtruth_path="ground_truth_de.json",
-        prompts_path="prompt_de.json",
-        save_folder="RSzeroshot/de"
-    )
-    zeroDE.zeroshot()
-    zeroIN = CLIPzeroshot(
-        dataset_folder="in",
-        groundtruth_path="ground_truth_in.json",
-        prompts_path="prompt_in.json",
-        save_folder="RSzeroshot/in"
-    )
-    zeroIN.zeroshot()
+    # zeroCN = CLIPzeroshot(
+    #     dataset_folder="dataset_cn",
+    #     groundtruth_path="ground_truth_cn.json",
+    #     prompts_path="prompt_cn.json",
+    #     save_folder="RSzeroshot/cn"
+    # )
+    # zeroCN.zeroshot()
+    # zeroDE = CLIPzeroshot(
+    #     dataset_folder="dataset_de",
+    #     groundtruth_path="ground_truth_de.json",
+    #     prompts_path="prompt_de.json",
+    #     save_folder="RSzeroshot/de"
+    # )
+    # zeroDE.zeroshot()
+    # zeroIN = CLIPzeroshot(
+    #     dataset_folder="dataset_in",
+    #     groundtruth_path="ground_truth_in.json",
+    #     prompts_path="prompt_in.json",
+    #     save_folder="RSzeroshot/in"
+    # )
+    # zeroIN.zeroshot()
 
-    model_ft = "models/clip_finetuned_cncn.pth"
+    # model_ft = "models/clip_finetunedp_cn.pth"  # fintuned with cn dataset and cn prompts
+
+    # fineCN = CLIPzeroshot(
+    #     dataset_folder="dataset_cn",
+    #     groundtruth_path="ground_truth_cn.json",
+    #     prompts_path="prompt_cn.json",
+    #     save_folder="RSfinetunedp_cn/cn",
+    #     finetuned_ckpt=model_ft
+    # )
+    # fineCN.zeroshot()
+    # fineDE = CLIPzeroshot(
+    #     dataset_folder="dataset_de",
+    #     groundtruth_path="ground_truth_de.json",
+    #     prompts_path="prompt_de.json",
+    #     save_folder="RSfinetunedp_cn/de",
+    #     finetuned_ckpt=model_ft
+    # )
+    # fineDE.zeroshot()
+    # fineIN = CLIPzeroshot(
+    #     dataset_folder="dataset_in",
+    #     groundtruth_path="ground_truth_in.json",
+    #     prompts_path="prompt_in.json",
+    #     save_folder="RSfinetunedp_cn/in",
+    #     finetuned_ckpt=model_ft
+    # )
+    # fineIN.zeroshot()
+
+    model_ft = "models/clip_finetunedp_cnde.pth"  # fintuned with cn+de dataset and cn+de prompts
 
     fineCN = CLIPzeroshot(
-        dataset_folder="cn",
+        dataset_folder="dataset_cn",
         groundtruth_path="ground_truth_cn.json",
         prompts_path="prompt_cn.json",
-        save_folder="RSfinetune1/cn",
+        save_folder="RSfinetunedp_cnde/cn",
         finetuned_ckpt=model_ft
     )
     fineCN.zeroshot()
     fineDE = CLIPzeroshot(
-        dataset_folder="de",
+        dataset_folder="dataset_de",
         groundtruth_path="ground_truth_de.json",
         prompts_path="prompt_de.json",
-        save_folder="RSfinetune1/de",
+        save_folder="RSfinetunedp_cnde/de",
         finetuned_ckpt=model_ft
     )
     fineDE.zeroshot()
     fineIN = CLIPzeroshot(
-        dataset_folder="in",
+        dataset_folder="dataset_in",
         groundtruth_path="ground_truth_in.json",
         prompts_path="prompt_in.json",
-        save_folder="RSfinetune1/in",
+        save_folder="RSfinetunedp_cnde/in",
         finetuned_ckpt=model_ft
     )
     fineIN.zeroshot()

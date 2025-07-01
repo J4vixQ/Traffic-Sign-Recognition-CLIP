@@ -26,7 +26,8 @@
         <label>Model:
           <select id="model-select-left">
             <option value="RSzeroshot">Original CLIP</option>
-            <option value="RSfinetune1">Finetune1</option>
+            <option value="RSfinetunedp_cn">Finetune cn</option>
+            <option value="RSfinetunedp_cnde">Finetune cn+de</option>
           </select>
         </label>
         <label>Country:
@@ -45,7 +46,8 @@
         <label>Model:
           <select id="model-select-right">
             <option value="RSzeroshot">Original CLIP</option>
-            <option value="RSfinetune1">Finetune1</option>
+            <option value="RSfinetunedp_cn">Finetune cn</option>
+            <option value="RSfinetunedp_cnde">Finetune cn+de</option>
           </select>
         </label>
         <label>Country:
@@ -69,7 +71,8 @@
         <label>Model:
           <select id="img-model-select-left">
             <option value="RSzeroshot">Original CLIP</option>
-            <option value="RSfinetune1">Finetune1</option>
+            <option value="RSfinetunedp_cn">Finetune cn</option>
+            <option value="RSfinetunedp_cnde">Finetune cn+de</option>
           </select>
         </label>
         <label>Country:
@@ -88,7 +91,8 @@
         <label>Model:
           <select id="img-model-select-right">
             <option value="RSzeroshot">Original CLIP</option>
-            <option value="RSfinetune1">Finetune1</option>
+            <option value="RSfinetunedp_cn">Finetune cn</option>
+            <option value="RSfinetunedp_cnde">Finetune cn+de</option>
           </select>
         </label>
         <label>Country:
@@ -105,6 +109,12 @@
   </div>
 
   <script>
+    const nameMap = {
+      "RSzeroshot": "Original CLIP",
+      "RSfinetunedp_cn": "Finetune cn",
+      "RSfinetunedp_cnde": "Finetune cn+de",
+      "cn": "China", "de": "Germany", "in": "India"
+    };
     // ---------- Per-class 控制 ----------
     const configs = [
       {
@@ -123,20 +133,26 @@
     function getCsvPath(model, country) {
       return `${model}/${country}/per_class_top5_accuracy.csv`;
     }
+
+    function getOverallCsvPath(model, country) {
+      return `${model}/${country}/overall_top5_accuracy.csv`;
+    }
+
     function updatePanel(panelIdx) {
       const conf = configs[panelIdx];
       const model = document.querySelector(conf.modelSel).value;
       const country = document.querySelector(conf.countrySel).value;
-      const nameMap = {
-        "RSzeroshot": "Original CLIP",
-        "RSfinetune1": "Finetune1",
-        "cn": "China", "de": "Germany", "in": "India"
-      };
       document.querySelector(conf.title).textContent = `${nameMap[model]} (${nameMap[country]})`;
-      d3.csv(getCsvPath(model, country)).then(data => {
-        renderPerClassHeatmap(data, conf.output);
+
+      // 并行读取两个 CSV
+      Promise.all([
+        d3.csv(getOverallCsvPath(model, country)),
+        d3.csv(getCsvPath(model, country))
+      ]).then(([overallData, perClassData]) => {
+        renderPerClassHeatmap(overallData, perClassData, conf.output);
       });
     }
+
     configs.forEach((conf, idx) => {
       document.querySelector(conf.modelSel).addEventListener("change", () => updatePanel(idx));
       document.querySelector(conf.countrySel).addEventListener("change", () => updatePanel(idx));
@@ -165,11 +181,6 @@
       const conf = imgConfigs[panelIdx];
       const model = document.querySelector(conf.modelSel).value;
       const country = document.querySelector(conf.countrySel).value;
-      const nameMap = {
-        "RSzeroshot": "Original CLIP",
-        "RSfinetune1": "Finetune1",
-        "cn": "China", "de": "Germany", "in": "India"
-      };
       document.querySelector(conf.title).textContent = `${nameMap[model]} (${nameMap[country]})`;
       d3.csv(getImgCsvPath(model, country)).then(data => {
         renderPerImageHeatmap(data, conf.output);
