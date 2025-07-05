@@ -42,14 +42,14 @@ Prompts act as a way to **"teach" the model** the meaning of each class
    Finetune CLIP on one country's dataset and prompts, test on the other two
 
 3. **Finetune with 2 sets → Test on 1 set**:  
-   Finetune on two countries, test on the third
+   Finetune CLIP on two countries, test on the third
 
 4. **Finetune with 3 sets**
-   If the previous steps show increasing accuracy, then this finetuning method can improve the generalization ability.
+   If the previous steps show increasing accuracy on the test domain, then this finetuning method can improve the generalization ability.
 
 **Expected Result**:  
 Finetuning should improve cross-domain generalization.  
 
 **Current Progress**
 Step 2 results are already better than zero-shot baseline (Step 2 > Step 1).
-Step 3 results are better than finetune with 1 country results (Step 3 > Step 2).
+Step 3 results are already better than finetune with 1 country results (Step 3 > Step 2).

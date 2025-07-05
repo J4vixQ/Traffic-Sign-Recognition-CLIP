@@ -1,10 +1,15 @@
 # ignore dataset
 images/
 cn_one/
-cn_limit/
+cn_gpt/
+cn_rl/
+cn_ai/
+de_rl/
+de_ai/
 dataset_cn/
 dataset_de/
 dataset_in/
+drop/
 *.png
 
 # ignore prompts and ground truth
@@ -18,3 +23,7 @@ dataset_in/
 # ignore models
 *.pth
 models/
+
+# ignore this
+CLIP_finetune_matching.ipynb
+CLIP_finetune_matching.py

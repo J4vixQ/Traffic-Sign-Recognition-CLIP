@@ -42,7 +42,17 @@ def generate_ground_truth(data_dir, save_as="ground_truth.json", save_format="js
     return ground_truth
 
 ground_truth = generate_ground_truth(
-    data_dir="cn",
+    data_dir="dataset_cn",
     save_as="ground_truth_cn.json",
+    save_format="json"
+)
+ground_truth = generate_ground_truth(
+    data_dir="dataset_de",
+    save_as="ground_truth_de.json",
+    save_format="json"
+)
+ground_truth = generate_ground_truth(
+    data_dir="dataset_in",
+    save_as="ground_truth_in.json",
     save_format="json"
 )

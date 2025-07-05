@@ -1,32 +1,26 @@
 Class,Top-1 Acc,Top-2 Acc,Top-3 Acc,Top-4 Acc,Top-5 Acc
-animal crossing,0.9,0.9,0.9,0.9,0.9
-bumpy road,0.0,0.0,1.0,1.0,1.0
-cross road,0.3,1.0,1.0,1.0,1.0
+animal crossing,1.0,1.0,1.0,1.0,1.0
+bumpy road,0.8,1.0,1.0,1.0,1.0
+cross road,1.0,1.0,1.0,1.0,1.0
 cycle crossing,1.0,1.0,1.0,1.0,1.0
-dip,0.0,1.0,1.0,1.0,1.0
 gas station,1.0,1.0,1.0,1.0,1.0
 give way,1.0,1.0,1.0,1.0,1.0
-height limit,0.1,1.0,1.0,1.0,1.0
+height limit,0.0,0.8,1.0,1.0,1.0
 hospital,1.0,1.0,1.0,1.0,1.0
-left turn,1.0,1.0,1.0,1.0,1.0
-narrow roads ahead,1.0,1.0,1.0,1.0,1.0
-no entry for vehicles,0.7,1.0,1.0,1.0,1.0
-no overtaking,0.95,1.0,1.0,1.0,1.0
+no entry for vehicles,0.8,0.88,1.0,1.0,1.0
+no overtaking,1.0,1.0,1.0,1.0,1.0
 no parking,1.0,1.0,1.0,1.0,1.0
 no pedestrians,1.0,1.0,1.0,1.0,1.0
-no proceed straight,0.0,0.0,0.0,0.0,0.0
-no stopping,0.5,1.0,1.0,1.0,1.0
-no u turn,0.85,1.0,1.0,1.0,1.0
-pedestrian crossing,1.0,1.0,1.0,1.0,1.0
-railway crossing,0.95,0.95,0.95,0.95,0.95
-right turn,0.5,1.0,1.0,1.0,1.0
-road work ahead,1.0,1.0,1.0,1.0,1.0
+no stopping,0.4,1.0,1.0,1.0,1.0
+no u turn,0.84,1.0,1.0,1.0,1.0
+pedestrian crossing,0.96,0.96,1.0,1.0,1.0
+railway crossing,0.88,0.88,0.92,0.92,0.92
+road work ahead,0.6666666666666666,1.0,1.0,1.0,1.0
 round about,1.0,1.0,1.0,1.0,1.0
 school zone,1.0,1.0,1.0,1.0,1.0
-slippery road,0.0,0.8,0.8,0.8,0.8
-speed limit,0.55,1.0,1.0,1.0,1.0
-steep ascent,0.6666666666666666,1.0,1.0,1.0,1.0
-steep descent,0.7,0.9,1.0,1.0,1.0
+slippery road,0.9,0.9,0.9,0.9,0.9
+speed limit,0.56,1.0,1.0,1.0,1.0
+steep ascent,0.6470588235294118,1.0,1.0,1.0,1.0
+steep descent,0.96,1.0,1.0,1.0,1.0
 stop,1.0,1.0,1.0,1.0,1.0
 weight limit,1.0,1.0,1.0,1.0,1.0
-width limit,0.0,0.6,1.0,1.0,1.0

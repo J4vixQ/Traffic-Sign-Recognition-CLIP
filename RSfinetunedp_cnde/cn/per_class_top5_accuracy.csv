@@ -1,26 +1,21 @@
 Class,Top-1 Acc,Top-2 Acc,Top-3 Acc,Top-4 Acc,Top-5 Acc
 animal crossing,1.0,1.0,1.0,1.0,1.0
-bumpy road,0.0,1.0,1.0,1.0,1.0
+bumpy road,0.4,0.6,1.0,1.0,1.0
 cross road,1.0,1.0,1.0,1.0,1.0
 cycle crossing,1.0,1.0,1.0,1.0,1.0
-dip,1.0,1.0,1.0,1.0,1.0
 gas station,1.0,1.0,1.0,1.0,1.0
 give way,1.0,1.0,1.0,1.0,1.0
-height limit,0.9,1.0,1.0,1.0,1.0
+height limit,1.0,1.0,1.0,1.0,1.0
 hospital,1.0,1.0,1.0,1.0,1.0
-left turn,1.0,1.0,1.0,1.0,1.0
-narrow roads ahead,1.0,1.0,1.0,1.0,1.0
 no entry for vehicles,1.0,1.0,1.0,1.0,1.0
-no overtaking,0.75,0.95,1.0,1.0,1.0
+no overtaking,0.8,1.0,1.0,1.0,1.0
 no parking,1.0,1.0,1.0,1.0,1.0
 no pedestrians,1.0,1.0,1.0,1.0,1.0
-no proceed straight,0.0,0.0,0.0,0.0,0.0
-no stopping,0.7,1.0,1.0,1.0,1.0
+no stopping,0.36,0.96,1.0,1.0,1.0
 no u turn,1.0,1.0,1.0,1.0,1.0
 pedestrian crossing,1.0,1.0,1.0,1.0,1.0
-railway crossing,1.0,1.0,1.0,1.0,1.0
-right turn,0.05,1.0,1.0,1.0,1.0
-road work ahead,1.0,1.0,1.0,1.0,1.0
+railway crossing,0.92,0.92,1.0,1.0,1.0
+road work ahead,0.9523809523809523,1.0,1.0,1.0,1.0
 round about,1.0,1.0,1.0,1.0,1.0
 school zone,1.0,1.0,1.0,1.0,1.0
 slippery road,1.0,1.0,1.0,1.0,1.0
@@ -29,4 +24,3 @@ steep ascent,1.0,1.0,1.0,1.0,1.0
 steep descent,0.0,1.0,1.0,1.0,1.0
 stop,1.0,1.0,1.0,1.0,1.0
 weight limit,1.0,1.0,1.0,1.0,1.0
-width limit,1.0,1.0,1.0,1.0,1.0

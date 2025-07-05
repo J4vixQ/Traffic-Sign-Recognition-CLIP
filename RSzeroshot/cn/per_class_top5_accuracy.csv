@@ -1,32 +1,26 @@
 Class,Top-1 Acc,Top-2 Acc,Top-3 Acc,Top-4 Acc,Top-5 Acc
-animal crossing,0.3,0.5,0.6,0.7,0.8
-bumpy road,0.0,0.0,0.4,0.7,0.9
-cross road,0.4,0.7,0.9,1.0,1.0
-cycle crossing,1.0,1.0,1.0,1.0,1.0
-dip,0.0,0.0,0.0,0.0,0.0
-gas station,1.0,1.0,1.0,1.0,1.0
-give way,0.4,0.55,0.55,0.7,0.85
-height limit,0.0,0.6,1.0,1.0,1.0
-hospital,1.0,1.0,1.0,1.0,1.0
-left turn,0.0,0.85,1.0,1.0,1.0
-narrow roads ahead,0.2,0.2,0.2,0.2,0.2
-no entry for vehicles,0.5,0.6,1.0,1.0,1.0
-no overtaking,0.0,0.0,0.0,0.0,0.05
-no parking,0.4,0.6,0.6,0.7,0.8
-no pedestrians,0.9,0.9,1.0,1.0,1.0
-no proceed straight,0.0,0.0,0.0,0.0,0.0
-no stopping,0.45,0.7,0.85,0.9,0.9
-no u turn,0.1,0.55,0.65,1.0,1.0
-pedestrian crossing,0.7,0.8,0.85,0.9,0.95
-railway crossing,0.55,0.75,0.75,0.75,0.75
-right turn,0.95,1.0,1.0,1.0,1.0
-road work ahead,0.375,0.625,0.9375,1.0,1.0
-round about,0.7,0.7,0.8,0.9,0.9
-school zone,0.3,0.55,0.7,0.8,0.85
-slippery road,0.4,0.6,0.7,0.7,0.7
-speed limit,0.9,0.95,0.95,0.95,1.0
-steep ascent,0.16666666666666666,0.5,0.8333333333333334,0.8333333333333334,0.8333333333333334
-steep descent,0.1,0.6,0.85,0.85,0.9
-stop,0.8,1.0,1.0,1.0,1.0
-weight limit,0.0,0.0,0.0,0.0,0.4
-width limit,0.6,0.9,1.0,1.0,1.0
+animal crossing,0.3,0.5,0.6,0.7,0.7
+bumpy road,0.1,0.1,0.3,0.5,0.9
+cross road,0.6,0.7,0.9,0.9,0.9
+cycle crossing,0.92,0.96,1.0,1.0,1.0
+gas station,0.8,1.0,1.0,1.0,1.0
+give way,0.56,0.64,0.72,0.88,0.96
+height limit,0.7,1.0,1.0,1.0,1.0
+hospital,0.8,1.0,1.0,1.0,1.0
+no entry for vehicles,0.64,0.64,0.88,0.92,1.0
+no overtaking,0.08,0.08,0.16,0.2,0.36
+no parking,0.2,0.6,0.9,0.9,0.9
+no pedestrians,0.9,1.0,1.0,1.0,1.0
+no stopping,0.28,0.72,0.88,1.0,1.0
+no u turn,0.24,0.68,0.92,0.92,0.92
+pedestrian crossing,0.52,0.68,0.72,0.72,0.76
+railway crossing,0.56,0.64,0.64,0.64,0.64
+road work ahead,0.38095238095238093,0.5714285714285714,0.8571428571428571,1.0,1.0
+round about,0.8,0.8,0.8,0.8,0.8
+school zone,0.28,0.68,0.72,0.88,0.92
+slippery road,0.5,0.6,0.6,0.7,0.7
+speed limit,0.88,0.92,0.96,1.0,1.0
+steep ascent,0.11764705882352941,0.5294117647058824,0.8823529411764706,0.8823529411764706,0.8823529411764706
+steep descent,0.32,0.84,1.0,1.0,1.0
+stop,0.76,1.0,1.0,1.0,1.0
+weight limit,0.0,0.0,0.3,0.6,1.0
